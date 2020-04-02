@@ -28,5 +28,15 @@ getRandomPhrase() {
     let randomPhrase = Math.floor(Math.random()*game.phrases.length);
   return game.phrases[randomPhrase];
 };
+/**
+ * Begins game by selecting a random phrase and displaying it to user
+ */
+startGame() {
+  const hideOverlay = document.getElementById('overlay');
+  hideOverlay.style.display = 'none';
+  this.activePhrase  = this.getRandomPhrase();
+  this.activePhrase.addPhraseToDisplay();
+};
+
 
 }

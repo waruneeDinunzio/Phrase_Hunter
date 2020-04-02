@@ -1,8 +1,15 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * app.js */
-const phrase = new Phrase('Life is like a box of chocolates');
-console.log(`Phrase - phrase: ${phrase.phrase}`);
+//const phrase = new Phrase('Life is like a box of chocolates');
+//const game;
+let game;
+//const btnReset= document.
+document.getElementById('btn__reset').addEventListener ('click', function () {
+  game = new Game();
+  game.startGame();
+})
+//console.log(`Phrase - phrase: ${phrase.phrase}`);
 //console.log(`Game - phrases: ${game.phrases}`);
 /*const game = new Game();
 game.phrases.forEach((phrase, index) => {
@@ -18,5 +25,9 @@ game.phrases.forEach((phrase, index) => {
   logPhrase(game.getRandomPhrase());
   logPhrase(game.getRandomPhrase());*/
   
+  /* step 6
   const game = new Game();
-game.getRandomPhrase().addPhraseToDisplay();
+game.getRandomPhrase().addPhraseToDisplay();*/
+//const game = new Game();
+//game.startGame();
+//console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
