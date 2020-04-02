@@ -48,13 +48,13 @@ class Phrase {
         console.log(showLetters);
         showLetters.forEach (showLetter => {
             if (showLetter.innerHTML === letter) {
-                //let li = document.getElementsByClassName(letter);
-                showLetter.className = "show letter " + letter;
+                showLetter.className = "show"
             } 
-        });
-        /*for (let i= 0; i < showLetters.length; i += 1) {
+        })
+        /* This code is working fine!
+        for (let i= 0; i < showLetters.length; i += 1) {
             if (showLetters[i].innerHTML = letter) {
-                showLetters[i].className = "show letter " + letter;
+                showLetters[i].className = "show"
             }
         }*/
         
