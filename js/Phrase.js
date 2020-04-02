@@ -44,14 +44,13 @@ class Phrase {
  * @param (string) letter - Letter to display
  */
     showMatchedLetter(letter) {
-        let showLetters = document.getElementsByClassName(letter);
-        console.log(showLetters);
-        showLetters.forEach (showLetter => {
+        let showLetter = document.querySelectorAll(".letter");
+        showLetter.forEach (showLetter => {
             if (showLetter.innerHTML === letter) {
-                showLetter.className = "show"
-            } 
+                showLetter.classList.replace("hide","show");
+            }
         })
-        /* This code is working fine!
+        /*This code is working fine!
         for (let i= 0; i < showLetters.length; i += 1) {
             if (showLetters[i].innerHTML = letter) {
                 showLetters[i].className = "show"

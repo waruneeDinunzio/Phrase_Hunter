@@ -8,26 +8,19 @@ let game;
 document.getElementById('btn__reset').addEventListener ('click', function () {
   game = new Game();
   game.startGame();
-})
-//console.log(`Phrase - phrase: ${phrase.phrase}`);
-//console.log(`Game - phrases: ${game.phrases}`);
-/*const game = new Game();
-game.phrases.forEach((phrase, index) => {
-  console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
-});*/
-/*step 5 const logPhrase = (phrase) => {
-    console.log(`Phrase - phrase: `, phrase.phrase);
-  };
-  const game = new Game();
-  logPhrase(game.getRandomPhrase());
-  logPhrase(game.getRandomPhrase());
-  logPhrase(game.getRandomPhrase());
-  logPhrase(game.getRandomPhrase());
-  logPhrase(game.getRandomPhrase());*/
-  
-  /* step 6
-  const game = new Game();
-game.getRandomPhrase().addPhraseToDisplay();*/
-//const game = new Game();
-//game.startGame();
-//console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
+});
+
+const button = document.querySelector('#qwerty');
+button.addEventListener('click', (e) => {
+if (e.target.className === 'key') {
+  game.handleInteraction(e.target);
+}
+});
+/**
+ * Handles onscreen keyboard button clicks
+ * @param (HTMLButtonElement) button - The clicked button element
+ 
+handleInteraction(button) {
+  console.log(button);
+};
+*/

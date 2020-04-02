@@ -38,5 +38,74 @@ startGame() {
   this.activePhrase.addPhraseToDisplay();
 };
 
+/**
+ * Checks for winning move
+ * @return {boolean} True if game has been won, false if game wasn't
+won */
+  checkForWin() {
+    const li = document.getElementsByClassName('hide');
+    if (li.length > 1) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+ /**
+ * Increases the value of the missed property
+ * Removes a life from the scoreboard
+ * Checks if player has remaining lives and ends game if player is out
+ */
+  removeLife() {
+    this.missed += 1;
+    document.querySelectorAll('#scoreboard img')[this.missed-1].setAttribute('src', 'images/lostHeart.png');
+    if (this.missed === 5) {
+      this.gameOver(false);
+    }
+  }; 
+
+/**
+ * Displays game over message
+ * @param {boolean} gameWon - Whether or not the user won the game
+ */
+  gameOver(gameWon) {
+  if (gameWon === true) {
+    document.getElementById('overlay').style.display = 'block';
+    const wonMessage = document.getElementById('game-over-message');
+    wonMessage.innerHTML = "Good job! You Won";
+    wonMessage.classList.replace("start", "win");
+  } 
+  if (gameWon === false) {
+    document.getElementById('overlay').style.display = 'block';
+    const lostMessage = document.getElementById('game-over-message');
+    lostMessage.innerHTML = "Sorry you're lost. try again";
+    lostMessage.classList.replace("start", "lose");
+  }
+  };
+  /**
+ * Handles onscreen keyboard button clicks
+ * @param (HTMLButtonElement) button - The clicked button element
+ */
+//handleInteraction(button) {
+  //console.log(button);
+//};
+  
+ handleInteraction(button) {
+   //const btnLetter = document.getElementById('row');
+  button.disabled === true;
+  console.log(this.activePhrase.checkLetter(button.innerHTML));
+  if (this.activePhrase.checkLetter(button.innerHTML) === false) {
+    event.target.className = "wrong";
+    this.removeLife();
+  }
+  if (this.activePhrase.checkLetter(button.innerHTML) === true) {
+    event.target.className = "chosen";
+    this.activePhrase.showMatchedLetter(button.innerHTML);
+    if (this.checkForWin()){
+      this.gameOver(true);
+    }
+  } 
+   
+ }
 
 }
