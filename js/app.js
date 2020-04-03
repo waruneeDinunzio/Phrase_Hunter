@@ -7,6 +7,7 @@ let game;
 //const btnReset= document.
 document.getElementById('btn__reset').addEventListener ('click', function () {
   game = new Game();
+  game.gameReset();
   game.startGame();
 });
 
@@ -16,11 +17,9 @@ if (e.target.className === 'key') {
   game.handleInteraction(e.target);
 }
 });
-/**
- * Handles onscreen keyboard button clicks
- * @param (HTMLButtonElement) button - The clicked button element
- 
-handleInteraction(button) {
-  console.log(button);
-};
-*/
+//const button = document.querySelector('#qwerty');
+button.addEventListener('keydown', (e) => {
+if (e.target.className === 'key') {
+  game.handleInteraction(e.target);
+}
+});

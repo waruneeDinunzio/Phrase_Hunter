@@ -24,19 +24,19 @@ class Game {
  * Selects random phrase from phrases property
  * @return {Object} Phrase object chosen to be used
  */
-getRandomPhrase() {
+  getRandomPhrase() {
     let randomPhrase = Math.floor(Math.random()*game.phrases.length);
   return game.phrases[randomPhrase];
-};
+  };
 /**
  * Begins game by selecting a random phrase and displaying it to user
  */
-startGame() {
+  startGame() {
   const hideOverlay = document.getElementById('overlay');
   hideOverlay.style.display = 'none';
   this.activePhrase  = this.getRandomPhrase();
   this.activePhrase.addPhraseToDisplay();
-};
+  };
 
 /**
  * Checks for winning move
@@ -104,8 +104,24 @@ won */
     if (this.checkForWin()){
       this.gameOver(true);
     }
-  } 
-   
+  }  
  }
+/*
+*
+*/
+ gameReset() {
+  let ul = document.querySelector('#phrase').children[0];
+  ul.innerHTML = "";
+  const resetButton = document.querySelectorAll('.keyrow');
+        for (let i=0; i < resetButton.length; i += 1){
+            for (let j=0; j < resetButton[i].children.length; j += 1){
+                resetButton[i].children[j].className = 'key';
+            }
+          }
+  //document.querySelectorAll(".chosen").classList.replace("chosen","key"); 
+    for (let i=0; i < 5; i +=1) {       
+    document.querySelectorAll('#scoreboard img')[i].setAttribute('src', 'images/liveHeart.png');
+  }
+}
 
 }
