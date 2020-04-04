@@ -46,7 +46,7 @@ class Game {
 won */
   checkForWin() {
     const li = document.getElementsByClassName('hide');
-    if (li.length > 1) {
+    if (li.length > 0) {
       return false;
     } else {
       return true;
@@ -98,14 +98,16 @@ won */
   //console.log(this.activePhrase.checkLetter(button.innerHTML));
   
   if (this.activePhrase.checkLetter(button.innerHTML) === true) {
-    event.target.className = "chosen";
     this.activePhrase.showMatchedLetter(button.innerHTML);
+    button.classList.replace("key", "chosen");
+    
     if (this.checkForWin()) {
       this.gameOver(true);
     }
-  }
-  if (this.activePhrase.checkLetter(button.innerHTML) === false) {
-      event.target.className = "wrong";
+  } else {
+  //if (this.activePhrase.checkLetter(button.innerHTML) === false) {
+    button.classList.replace("key", "wrong");
+    console.log(event.target)
       button.disabled = true;
       this.removeLife();
     }

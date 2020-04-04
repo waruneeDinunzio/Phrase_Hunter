@@ -25,7 +25,7 @@ keys.forEach( key => {
 });*/
 
 
-const keys = document.querySelectorAll('.key');
+/*const keys = document.querySelectorAll('.key');
 addEventListener('keyup', function(e){
   if(game.gameStarted){
       for(let i =0; i<keys.length; i+=1 ){
@@ -36,5 +36,20 @@ addEventListener('keyup', function(e){
           }
         }
       }
-  });
+  });*/
+
+  const keys = document.querySelectorAll('.key');
+
+  if(this.gameStarted = true){
+      for(let i =0; i<keys.length; i+=1 ){
+        addEventListener('keyup', function(e){
+          if(e.key.toLowerCase() === keys[i].innerHTML){
+            console.log(e.key)
+              keys[i].focus();
+              game.handleInteraction(keys[i]);
+              return;
+          }
+        });
+      }
+  }
   
