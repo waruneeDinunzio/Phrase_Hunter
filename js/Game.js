@@ -2,10 +2,11 @@
  * Project 4 - OOP Game App
  * Game.js */
 class Game {
-    constructor(missed, phrases, activePhrase) {
+    constructor(missed, phrases, activePhrase, gameStarted) {
     this.missed = 0;
     this.phrases = this.createPhrases();
     this.activePhrase = null;
+    this.gameStarted = false;
     }
 /**
 * Creates phrases for use in game
@@ -32,6 +33,7 @@ class Game {
  * Begins game by selecting a random phrase and displaying it to user
  */
   startGame() {
+  this.gameStarted = true;
   const hideOverlay = document.getElementById('overlay');
   hideOverlay.style.display = 'none';
   this.activePhrase  = this.getRandomPhrase();
@@ -82,30 +84,33 @@ won */
     lostMessage.classList.replace("start", "lose");
   }
   };
-  /**
+/**
  * Handles onscreen keyboard button clicks
  * @param (HTMLButtonElement) button - The clicked button element
  */
-//handleInteraction(button) {
-  //console.log(button);
-//};
   
  handleInteraction(button) {
+   if (button.disabled) {
+     return;
+  }
    //const btnLetter = document.getElementById('row');
   button.disabled === true;
-  console.log(this.activePhrase.checkLetter(button.innerHTML));
-  if (this.activePhrase.checkLetter(button.innerHTML) === false) {
-    event.target.className = "wrong";
-    this.removeLife();
-  }
+  //console.log(this.activePhrase.checkLetter(button.innerHTML));
+  
   if (this.activePhrase.checkLetter(button.innerHTML) === true) {
     event.target.className = "chosen";
     this.activePhrase.showMatchedLetter(button.innerHTML);
-    if (this.checkForWin()){
+    if (this.checkForWin()) {
       this.gameOver(true);
     }
-  }  
- }
+  }
+  if (this.activePhrase.checkLetter(button.innerHTML) === false) {
+      event.target.className = "wrong";
+      button.disabled = true;
+      this.removeLife();
+    }
+  
+}
 /*
 *
 */
@@ -116,9 +121,9 @@ won */
         for (let i=0; i < resetButton.length; i += 1){
             for (let j=0; j < resetButton[i].children.length; j += 1){
                 resetButton[i].children[j].className = 'key';
+                resetButton[i].children[j].disabled = false;
             }
           }
-  //document.querySelectorAll(".chosen").classList.replace("chosen","key"); 
     for (let i=0; i < 5; i +=1) {       
     document.querySelectorAll('#scoreboard img')[i].setAttribute('src', 'images/liveHeart.png');
   }
