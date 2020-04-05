@@ -28,8 +28,12 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
+  
 }
 
+#banner {
+  background-color: rgb(149, 120, 219);
+}
 li, ol, ul {
   padding: 0;
   display: inline-block;
@@ -38,12 +42,14 @@ li, ol, ul {
 h2 {
   margin: 0;
   text-transform: uppercase;
+  text-shadow: 2px 2px lavender;
   font-size: var(--font-size-large);
   margin: 0;
 }
 
 h1 {
   font-size: 30px;
+  
 }
 
 button {
@@ -58,11 +64,17 @@ button {
   -o-transition: var(--transition);
   transition: var(--transition);
   cursor: pointer;
+  box-shadow: rgb(14, 144, 224) 5px 5px 5px;
 }
+
 
 #btn__reset {
 	width: 200px;
-	margin: 0 auto;
+  margin: 0 auto;
+  box-shadow: #b1a718 5px 5px 5px;
+}
+#btn__reset:hover {
+  background-color:rgb(17, 211, 137);
 }
 
 .main-container {
@@ -88,7 +100,6 @@ button {
 .header {
   color: #3a3f58;
 }
-
 
 /* Phrase */
 
@@ -129,7 +140,9 @@ button {
   display: flex;
   justify-content: center;
 }
-
+.key:hover {
+  background-color:rgb(17, 211, 137);
+}
 .chosen {
   background: #3a3f58;
   border-radius: 5px;
@@ -177,6 +190,7 @@ button {
 
 .title {
   color: #FFF;
+  text-shadow: 3px 3px #b1a718;
 }
 
 .start {

@@ -1,6 +1,7 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Game.js */
+
 class Game {
     constructor(missed, phrases, activePhrase, gameStarted) {
     this.missed = 0;
@@ -29,6 +30,7 @@ class Game {
     let randomPhrase = Math.floor(Math.random()*game.phrases.length);
   return game.phrases[randomPhrase];
   };
+
 /**
  * Begins game by selecting a random phrase and displaying it to user
  */
@@ -84,18 +86,16 @@ won */
     lostMessage.classList.replace("start", "lose");
   }
   };
+
 /**
  * Handles onscreen keyboard button clicks
  * @param (HTMLButtonElement) button - The clicked button element
  */
-  
  handleInteraction(button) {
    if (button.disabled) {
      return;
   }
-   //const btnLetter = document.getElementById('row');
   button.disabled === true;
-  //console.log(this.activePhrase.checkLetter(button.innerHTML));
   
   if (this.activePhrase.checkLetter(button.innerHTML) === true) {
     this.activePhrase.showMatchedLetter(button.innerHTML);
@@ -105,14 +105,13 @@ won */
       this.gameOver(true);
     }
   } else {
-  //if (this.activePhrase.checkLetter(button.innerHTML) === false) {
     button.classList.replace("key", "wrong");
     console.log(event.target)
       button.disabled = true;
       this.removeLife();
-    }
-  
+  }
 }
+
 /*
 *
 */
@@ -130,5 +129,4 @@ won */
     document.querySelectorAll('#scoreboard img')[i].setAttribute('src', 'images/liveHeart.png');
   }
 }
-
 }

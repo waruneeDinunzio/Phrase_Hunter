@@ -1,6 +1,7 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Phrase.js */
+
 class Phrase {
     constructor(phrase) {
     this.phrase = phrase;
@@ -35,8 +36,7 @@ class Phrase {
             return true;
         } else {
             return false;
-        }
-        
+        }   
     };
    
 /**
@@ -50,13 +50,5 @@ class Phrase {
                 showLetter.classList.replace("hide","show");
             }
         })
-        /*This code is working fine!
-        for (let i= 0; i < showLetters.length; i += 1) {
-            if (showLetters[i].innerHTML = letter) {
-                showLetters[i].className = "show"
-            }
-        }*/
-        
     }  
-    
-}
+}   
